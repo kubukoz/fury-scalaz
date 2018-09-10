@@ -1,0 +1,165 @@
+api	EoIRRHAYTLPd+7VxcTPTNA==
+schemas	default	id	default
+		projects	kind-projector	id	kind-projector
+				modules	core	id	core
+						kind	plugin
+						main	Some	d_m.KindProjector
+						manifest	
+						compiler	Some	projectId	scala
+								moduleId	compiler
+						after	
+						params	
+						sources	kp:src/main/scala	repoId	kp
+								path	src/main/scala
+						binaries	
+						resources	
+						bloopSpec	None
+				main	Some	core
+				license	unknown
+				description	
+			pascal	id	pascal
+				modules	core	id	core
+						kind	plugin
+						main	Some	pascal.PascalPlugin
+						manifest	
+						compiler	Some	projectId	scala
+								moduleId	compiler
+						after	
+						params	
+						sources	pascal:src/main/scala	repoId	pascal
+								path	src/main/scala
+							pascal:src/main/scala-2.13-	repoId	pascal
+								path	src/main/scala-2.13-
+						binaries	
+						resources	
+						bloopSpec	None
+				main	Some	core
+				license	unknown
+				description	
+			scalaz	id	scalaz
+				modules	core	id	core
+						kind	library
+						main	None
+						manifest	
+						compiler	Some	projectId	scala
+								moduleId	compiler
+						after	kind-projector/core	projectId	kind-projector
+								moduleId	core
+							pascal/core	projectId	pascal
+								moduleId	core
+							scalaz/meta	projectId	scalaz
+								moduleId	meta
+							silencer/lib	projectId	silencer
+								moduleId	lib
+							silencer/plugin	projectId	silencer
+								moduleId	plugin
+							zio/core	projectId	zio
+								moduleId	core
+						params	Xfuture	Xfuture
+							Xsource:2.13	Xsource:2.13
+							Yno-predef	Yno-predef
+							Ypartial-unification	Ypartial-unification
+							Yrangepos	Yrangepos
+							feature	feature
+							language:existentials	language:existentials
+							language:higherKinds	language:higherKinds
+							language:implicitConversions	language:implicitConversions
+						sources	scalaz:base/shared	repoId	scalaz
+								path	base/shared
+						binaries	
+						resources	
+						bloopSpec	None
+					meta	id	meta
+						kind	library
+						main	None
+						manifest	
+						compiler	Some	projectId	scala
+								moduleId	compiler
+						after	
+						params	
+						sources	scalaz:meta/shared/src/main/scala	repoId	scalaz
+								path	meta/shared/src/main/scala
+						binaries	
+						resources	
+						bloopSpec	None
+				main	Some	core
+				license	unknown
+				description	
+			silencer	id	silencer
+				modules	lib	id	lib
+						kind	library
+						main	None
+						manifest	
+						compiler	Some	projectId	scala
+								moduleId	compiler
+						after	
+						params	
+						sources	silencer:silencer-lib/src/main/scala	repoId	silencer
+								path	silencer-lib/src/main/scala
+						binaries	
+						resources	
+						bloopSpec	None
+					plugin	id	plugin
+						kind	plugin
+						main	Some	com.github.ghik.silencer.SilencerPlugin
+						manifest	
+						compiler	Some	projectId	scala
+								moduleId	compiler
+						after	
+						params	
+						sources	silencer:silencer-plugin/src/main/scala	repoId	silencer
+								path	silencer-plugin/src/main/scala
+						binaries	
+						resources	
+						bloopSpec	None
+				main	Some	plugin
+				license	unknown
+				description	
+			zio	id	zio
+				modules	core	id	core
+						kind	library
+						main	None
+						manifest	
+						compiler	Some	projectId	scala
+								moduleId	compiler
+						after	
+						params	
+						sources	zio:core/jvm/src/main/scala	repoId	zio
+								path	core/jvm/src/main/scala
+							zio:core/shared/src/main/scala	repoId	zio
+								path	core/shared/src/main/scala
+						binaries	
+						resources	
+						bloopSpec	None
+				main	Some	core
+				license	unknown
+				description	
+		repos	base	id	base
+				repo	git@github.com:propensive/base.git
+				version	master
+				local	None
+			kp	id	kp
+				repo	git@github.com:non/kind-projector.git
+				version	master
+				local	None
+			pascal	id	pascal
+				repo	git@github.com:tomasmikula/pascal.git
+				version	master
+				local	None
+			scalaz	id	scalaz
+				repo	git@github.com:scalaz/scalaz.git
+				version	master
+				local	None
+			silencer	id	silencer
+				repo	git@github.com:ghik/silencer.git
+				version	master
+				local	None
+			zio	id	zio
+				repo	git@github.com:scalaz/scalaz-zio.git
+				version	master
+				local	None
+		fixes	
+		imports	base/2.12.6	repo	base
+				schema	2.12.6
+		main	Some	scalaz
+main	default
